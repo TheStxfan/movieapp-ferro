@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    font-family: "Roboto";
+    zoom: 125%;
+    background-color: #000000;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    color: #db0000;
+    padding: 0.6rem 1.7rem;
+}
+
+#logo {
+    display: flex;
+    align-items: space-between;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+#logo-image {
+    margin-top: 7px;
+    max-width: 8rem;
+    height: auto;
+}
+
+#menu{
+    display: flex;
+    gap: 1.5rem;
+    font-size: x-large;
+}
+
+#menu a {
+    color: #db0000;
+    text-decoration: none;
+}
+
+.movie {
+    padding: .2rem .5rem;
+    border-radius: .5rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: rgb(255, 255, 255);
+}
+
+.movieList {
+    display: grid;
+    padding: .5rem;
+    gap: .5rem;
+    grid-template-columns: 5fr 5fr 5fr 5fr;
+}
