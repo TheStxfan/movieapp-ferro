@@ -1,0 +1,23 @@
+{
+  "name": "movieapp-ferro",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/TheStxfan/movieapp-ferro#readme",
+  "bugs": {
+    "url": "https://github.com/TheStxfan/movieapp-ferro/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheStxfan/movieapp-ferro.git"
+  },
+  "license": "ISC",
+  "author": "thestxfan (Stefan Ferro)",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "volta": {
+    "node": "24.15.0"
+  }
+}
