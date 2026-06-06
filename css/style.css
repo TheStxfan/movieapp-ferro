@@ -45,11 +45,19 @@ body {
     color: rgb(255, 255, 255);
 }
 
+.movie img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: .5rem;
+    margin: .5rem 0rem;
+}
+
 .movieList {
     display: grid;
     padding: .5rem;
     gap: .5rem;
-    grid-template-columns: 5fr 5fr 5fr 5fr;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 }
 
 footer {
