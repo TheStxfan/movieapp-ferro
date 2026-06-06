@@ -1,5 +1,5 @@
 body {
-    margin: 0;
+    margin: .5rem 1rem;
     font-family: "Roboto";
     zoom: 125%;
     background-color: #141414;
@@ -23,19 +23,35 @@ body {
 
 #logo-image {
     margin-top: 7px;
-    max-width: 8rem;
+    max-width: 12rem;
     height: auto;
 }
 
 #menu{
     display: flex;
     gap: 1.5rem;
-    font-size: x-large;
+    font-size: 2rem;
+    font-weight: bolder;
 }
 
 #menu a {
-    color: #db0000;
+    color: #b10101;
     text-decoration: none;
+}
+
+#sectionTitle {
+    display: flex;
+    color: white;
+    margin: 1rem .5rem;
+    font-size: 2rem;
+    justify-content: left;
+    font-weight: bolder;
+}
+
+#mainSection {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem 1rem;
 }
 
 .card {
@@ -67,6 +83,44 @@ body {
     color: rgba(255, 255, 255, 0.7);
 }
 
+.profile-card {
+    max-width: 680px;
+    margin: 2rem auto;
+    padding: 2rem 3rem 2rem 2rem;
+    border-radius: .75rem;
+    background-color: rgba(255, 255, 255, 0.12);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.profile-avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.profile-links a {
+    color: #db0000;
+    text-decoration: none;
+}
+
+.profile-links a:hover {
+    text-decoration: underline;
+}
+
+#student-profile {
+    margin-bottom: 0;
+}
+
 .movieInfo {
     display: flex;
     flex-direction: column;
@@ -88,7 +142,7 @@ body {
 .movieList {
     display: grid;
     padding: .5rem;
-    gap: .5rem;
+    gap: .6rem;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 }
 
@@ -97,16 +151,12 @@ footer {
     margin: 70px auto 0;
     color: grey;
     justify-content: center;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#sectionTitle {
-    display: flex;
-    color: white;
-    margin: 0rem .5rem;
-}
-
-#mainSection {
-    display: flex;
-    flex-direction: column;
-    margin: 2rem 1rem;
+.footer-content {
+    max-width: 680px;
 }
