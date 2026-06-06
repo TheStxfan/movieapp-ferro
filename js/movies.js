@@ -5,9 +5,6 @@ import { getPopularMovies } from "./api.js";
 const popularMovies = (await getPopularMovies()).results
 const posterBaseUrl = "https://image.tmdb.org/t/p/w220_and_h330_face"
 
-// Testing
-console.log(popularMovies[0])
-
 // Injecting Popular Movies
 const movieIniezione = document.getElementById("movieIniezione")
 
@@ -36,7 +33,7 @@ popularMovies.map((item) => {
 
     movieDate.innerText = item.release_date
 
-    voto.innerText = "Avg: " + item.vote_average
+    voto.innerText = "Avg: " + item.vote_average.toFixed(1)
     totVoti.innerText = "Votes: " + item.vote_count
 
     movieBox.appendChild(moviePoster)
