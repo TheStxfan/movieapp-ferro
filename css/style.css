@@ -53,6 +53,17 @@ body {
     margin: .5rem 0rem;
 }
 
+.movie h2 {
+    margin: .5rem 0 .3rem 0;
+    font-size: 1rem;
+}
+
+.movie p {
+    margin: 0 0 .5rem 0;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
 .movieList {
     display: grid;
     padding: .5rem;
