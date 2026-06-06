@@ -2,18 +2,18 @@ import movies from "../data/movies.json" with { type: "json" }
 
 console.log(movies[0])
 
-const movieIniezione = document.getElementById("movieIniezione")
+const movieIniezione = document.getElementById("movieIniezione")    // crea una costante che punta all'elemento con id="movieIniezione" (0)
 
 movies.map((item) => {
-    const movieBox = document.createElement("div")
+    const movieBox = document.createElement("div")  // crea un nuovo div (1)
 
-    movieBox.classList = "movie"
+    movieBox.classList = "movie"                    // assegna al div (1) la classe movie 
 
-    const movieH2 = document.createElement("h2")
+    const movieH2 = document.createElement("h2")    // crea una costante contenente l'elemento H2 (2)
 
-    movieH2.innerText = item.title
+    movieH2.innerText = item.title                  // assegna come testo a quella costante H2 (2) il titolo del film (item)
 
-    movieBox.appendChild(movieH2)
+    movieBox.appendChild(movieH2)                   // inserisci la costante H2 (2) nel div (1)
 
-    movieIniezione.append(movieBox)
+    movieIniezione.append(movieBox)                 // inserisci il div (1) in movieIniezione (0)
 })
