@@ -38,14 +38,17 @@ body {
     text-decoration: none;
 }
 
-.movie {
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: .2rem .5rem;
     border-radius: .5rem;
     background-color: rgba(255, 255, 255, 0.2);
     color: rgb(255, 255, 255);
 }
 
-.movie img {
+.card img {
     display: block;
     width: 100%;
     height: auto;
@@ -53,15 +56,33 @@ body {
     margin: .5rem 0rem;
 }
 
-.movie h2 {
-    margin: .5rem 0 .3rem 0;
+.card h2 {
+    margin: 0 0 .7rem 0;
     font-size: 1rem;
 }
 
-.movie p {
-    margin: 0 0 .5rem 0;
+.card p {
+    margin: 0 0 .3rem 0;
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.7);
+}
+
+.movieInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.movieDetailsBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    margin-top: auto;
+}
+
+.detailsVotes {
+    display: flex;
+    justify-content: space-between;
 }
 
 .movieList {
@@ -81,7 +102,7 @@ footer {
 #sectionTitle {
     display: flex;
     color: white;
-    margin: 0rem 2rem;
+    margin: 0rem .5rem;
 }
 
 #mainSection {

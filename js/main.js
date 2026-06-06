@@ -14,20 +14,26 @@ const movieIniezione = document.getElementById("movieIniezione")
 
 trendingMovies.map((item) => {
     const movieBox = document.createElement("div")
-    const movieH2 = document.createElement("h2")
+    const movieTitle = document.createElement("h2")
+    const movieInfo = document.createElement("div")
+    const details = document.createElement("div")
     const moviePoster = document.createElement("img")
     const movieDate = document.createElement("p")
 
-    movieBox.classList = "movie"
+    movieBox.classList = "card"
+    movieInfo.classList = "movieInfo"
+    details.classList = "movieDetailsBar"
 
-    movieH2.innerText = item.title
+    movieTitle.innerText = item.title
     moviePoster.src = `${posterBaseUrl}${item.poster_path}`
     moviePoster.alt = item.title
     movieDate.innerText = item.release_date
 
     movieBox.appendChild(moviePoster)
-    movieBox.appendChild(movieH2)
-    movieBox.appendChild(movieDate)
+    movieInfo.appendChild(movieTitle)
+    movieBox.appendChild(movieInfo)
+    movieBox.appendChild(details)
+    details.appendChild(movieDate)
     
     movieIniezione.append(movieBox)
 })
@@ -37,20 +43,20 @@ const serieIniezione = document.getElementById("serieIniezione")
 
 trendingSeries.map((item) => {
     const serieBox = document.createElement("div")
-    const serieH2 = document.createElement("h2")
+    const serieTitle = document.createElement("h2")
     const seriePoster = document.createElement("img")
     const serieDate = document.createElement("p")
 
-    serieBox.classList = "movie"
+    serieBox.classList = "card"
 
-    serieH2.innerText = item.name
+    serieTitle.innerText = item.name
     seriePoster.src = `${posterBaseUrl}${item.poster_path}`
     seriePoster.alt = item.name
     serieDate.innerText = item.first_air_date
 
     serieBox.appendChild(seriePoster)
-    serieBox.appendChild(serieH2)
+    serieBox.appendChild(serieTitle)
     serieBox.appendChild(serieDate)
-    
+
     serieIniezione.append(serieBox)
 })
