@@ -15,7 +15,7 @@
   "type": "module",
   "main": "main.js",
   "scripts": {
-    "start": "node main.js"
+    "start": "node ./js/api.js"
   },
   "volta": {
     "node": "24.15.0"

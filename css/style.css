@@ -2,14 +2,14 @@ body {
     margin: 0;
     font-family: "Roboto";
     zoom: 125%;
-    background-color: #000000;
+    background-color: #141414;
 }
 
 #header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #000000;
+    background-color: rgb(20, 20, 20);
     color: #db0000;
     padding: 0.6rem 1.7rem;
 }
@@ -50,4 +50,11 @@ body {
     padding: .5rem;
     gap: .5rem;
     grid-template-columns: 5fr 5fr 5fr 5fr;
+}
+
+footer {
+    display: flex;
+    margin: 70px auto 0;
+    color: white;
+    justify-content: center;
 }
