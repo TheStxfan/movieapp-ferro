@@ -19,8 +19,6 @@ export const getTrendingMovies = async () => {
     }
 }
 
-console.log(await getTrendingMovies());
-
 export const getTrendingTvShows = async () => {
     try {
         const result = await fetch('https://api.themoviedb.org/3/trending/tv/day',
@@ -39,5 +37,3 @@ export const getTrendingTvShows = async () => {
         return null;
     }
 }
-
-console.log(await getTrendingTvShows());
