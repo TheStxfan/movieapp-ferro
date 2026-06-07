@@ -14,6 +14,11 @@ export const getTrendingMovies = async () => {
                 }
             });
 
+        if (!result.ok) {
+            console.error("Errore risposta API:", result.status)
+            return null;
+        }
+
         return await result.json();
 
     } catch (error) {
@@ -32,6 +37,11 @@ export const getTrendingShows = async () => {
                     Authorization: `Bearer ${api_token}`
                 }
             });
+
+        if (!result.ok) {
+            console.error("Errore risposta API:", result.status)
+            return null;
+        }
 
         return await result.json();
 
@@ -53,6 +63,11 @@ export const getPopularMovies = async () => {
                 }
             });
 
+        if (!result.ok) {
+            console.error("Errore risposta API:", result.status)
+            return null;
+        }
+
         return await result.json();
 
     } catch (error) {
@@ -72,6 +87,11 @@ export const getPopularShows = async () => {
                     Authorization: `Bearer ${api_token}`
                 }
             });
+
+        if (!result.ok) {
+            console.error("Errore risposta API:", result.status)
+            return null;
+        }
 
         return await result.json();
 
