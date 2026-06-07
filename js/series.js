@@ -17,8 +17,8 @@ popularShows.map((item) => {
     const serieDate = document.createElement("p")
 
     serieBox.classList = "card"
-    serieInfo.classList = "serieInfo"
-    details.classList = "serieDetailsBar"
+    serieInfo.classList = "movieInfo"
+    details.classList = "movieDetailsBar"
     dateBlock.classList = "detailsDate"
 
     serieBox.appendChild(createPoster(item, "name"))
