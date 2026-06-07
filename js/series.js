@@ -2,37 +2,42 @@
 import { getPopularShows } from "./api.js";
 import { createPoster, createVotesBlock } from "./utils.js";
 
-// Results
-const popularShows = (await getPopularShows()).results
-
 // Injecting Popular Series
 const serieIniezione = document.getElementById("serieIniezione")
+serieIniezione.innerText = "Caricamento..."
 
-popularShows.map((item) => {
-    const serieBox = document.createElement("div")
-    const serieTitle = document.createElement("h2")
-    const serieInfo = document.createElement("div")
-    const details = document.createElement("div")
-    const dateBlock = document.createElement("div")
-    const serieDate = document.createElement("p")
+const popularShows = await getPopularShows()
 
-    serieBox.classList = "card"
-    serieInfo.classList = "movieInfo"
-    details.classList = "movieDetailsBar"
-    dateBlock.classList = "detailsDate"
+if (!popularShows) {
+    serieIniezione.innerText = "Errore nel caricamento delle serie. Riprova più tardi."
+} else {
+    serieIniezione.innerText = ""
+    popularShows.results.map((item) => {
+        const serieBox = document.createElement("div")
+        const serieTitle = document.createElement("h2")
+        const serieInfo = document.createElement("div")
+        const details = document.createElement("div")
+        const dateBlock = document.createElement("div")
+        const serieDate = document.createElement("p")
 
-    serieBox.appendChild(createPoster(item, "name"))
+        serieBox.classList = "card"
+        serieInfo.classList = "movieInfo"
+        details.classList = "movieDetailsBar"
+        dateBlock.classList = "detailsDate"
 
-    serieTitle.innerText = item.name
-    serieDate.innerText = item.first_air_date
+        serieBox.appendChild(createPoster(item, "name"))
 
-    serieInfo.appendChild(serieTitle)
-    serieBox.appendChild(serieInfo)
-    serieBox.appendChild(details)
+        serieTitle.innerText = item.name
+        serieDate.innerText = item.first_air_date
 
-    dateBlock.appendChild(serieDate)
-    details.appendChild(dateBlock)
-    details.appendChild(createVotesBlock(item))
-    
-    serieIniezione.append(serieBox)
-})
+        serieInfo.appendChild(serieTitle)
+        serieBox.appendChild(serieInfo)
+        serieBox.appendChild(details)
+
+        dateBlock.appendChild(serieDate)
+        details.appendChild(dateBlock)
+        details.appendChild(createVotesBlock(item))
+
+        serieIniezione.append(serieBox)
+    })
+}

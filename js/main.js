@@ -2,54 +2,66 @@
 import { getTrendingMovies, getTrendingShows } from "./api.js";
 import { createPoster } from "./utils.js";
 
-// Results
-const trendingMovies = (await getTrendingMovies()).results
-const trendingSeries = (await getTrendingShows()).results
-
 // Injecting Trending Movies
 const movieIniezione = document.getElementById("movieIniezione")
+movieIniezione.innerText = "Caricamento..."
 
-trendingMovies.map((item) => {
-    const movieBox = document.createElement("div")
-    const movieTitle = document.createElement("h2")
-    const movieInfo = document.createElement("div")
-    const details = document.createElement("div")
-    const movieDate = document.createElement("p")
+const trendingMovies = await getTrendingMovies()
 
-    movieBox.classList = "card"
-    movieInfo.classList = "movieInfo"
-    details.classList = "movieDetailsBar"
+if (!trendingMovies) {
+    movieIniezione.innerText = "Errore nel caricamento dei film. Riprova più tardi."
+} else {
+    movieIniezione.innerText = ""
+    trendingMovies.results.map((item) => {
+        const movieBox = document.createElement("div")
+        const movieTitle = document.createElement("h2")
+        const movieInfo = document.createElement("div")
+        const details = document.createElement("div")
+        const movieDate = document.createElement("p")
 
-    movieBox.appendChild(createPoster(item, "title"))
+        movieBox.classList = "card"
+        movieInfo.classList = "movieInfo"
+        details.classList = "movieDetailsBar"
 
-    movieTitle.innerText = item.title
-    movieDate.innerText = item.release_date
+        movieBox.appendChild(createPoster(item, "title"))
 
-    movieInfo.appendChild(movieTitle)
-    movieBox.appendChild(movieInfo)
-    movieBox.appendChild(details)
-    details.appendChild(movieDate)
-    
-    movieIniezione.append(movieBox)
-})
+        movieTitle.innerText = item.title
+        movieDate.innerText = item.release_date
+
+        movieInfo.appendChild(movieTitle)
+        movieBox.appendChild(movieInfo)
+        movieBox.appendChild(details)
+        details.appendChild(movieDate)
+
+        movieIniezione.append(movieBox)
+    })
+}
 
 // Injecting Trending Series
 const serieIniezione = document.getElementById("serieIniezione")
+serieIniezione.innerText = "Caricamento..."
 
-trendingSeries.map((item) => {
-    const serieBox = document.createElement("div")
-    const serieTitle = document.createElement("h2")
-    const serieDate = document.createElement("p")
+const trendingSeries = await getTrendingShows()
 
-    serieBox.classList = "card"
+if (!trendingSeries) {
+    serieIniezione.innerText = "Errore nel caricamento delle serie. Riprova più tardi."
+} else {
+    serieIniezione.innerText = ""
+    trendingSeries.results.map((item) => {
+        const serieBox = document.createElement("div")
+        const serieTitle = document.createElement("h2")
+        const serieDate = document.createElement("p")
 
-    serieBox.appendChild(createPoster(item, "name"))
+        serieBox.classList = "card"
 
-    serieTitle.innerText = item.name
-    serieDate.innerText = item.first_air_date
+        serieBox.appendChild(createPoster(item, "name"))
 
-    serieBox.appendChild(serieTitle)
-    serieBox.appendChild(serieDate)
+        serieTitle.innerText = item.name
+        serieDate.innerText = item.first_air_date
 
-    serieIniezione.append(serieBox)
-})
+        serieBox.appendChild(serieTitle)
+        serieBox.appendChild(serieDate)
+
+        serieIniezione.append(serieBox)
+    })
+}
