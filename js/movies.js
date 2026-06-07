@@ -11,7 +11,6 @@ const movieIniezione = document.getElementById("movieIniezione")
 popularMovies.map((item) => {
     const movieBox = document.createElement("div")
     const movieTitle = document.createElement("h2")
-    const moviePoster = document.createElement("img")
     const movieInfo = document.createElement("div")
     const details = document.createElement("div")
     const dateBlock = document.createElement("div")
@@ -26,17 +25,25 @@ popularMovies.map((item) => {
     dateBlock.classList = "detailsDate"
     votesBlock.classList = "detailsVotes"
 
-    movieTitle.innerText = item.title
+    if (item.poster_path) {
+        const moviePoster = document.createElement("img")
+        moviePoster.src = `${posterBaseUrl}${item.poster_path}`
+        moviePoster.alt = item.title
+        movieBox.appendChild(moviePoster)
+    } else {
+        const placeholder = document.createElement("div")
+        placeholder.classList = "poster-placeholder"
+        placeholder.innerText = "Nessuna immagine"
+        movieBox.appendChild(placeholder)
+    }
 
-    moviePoster.src = `${posterBaseUrl}${item.poster_path}`
-    moviePoster.alt = item.title
+    movieTitle.innerText = item.title
 
     movieDate.innerText = item.release_date
 
     voto.innerText = "Avg: " + item.vote_average.toFixed(1)
     totVoti.innerText = "Votes: " + item.vote_count
 
-    movieBox.appendChild(moviePoster)
     movieInfo.appendChild(movieTitle)
     movieBox.appendChild(movieInfo)
     movieBox.appendChild(details)

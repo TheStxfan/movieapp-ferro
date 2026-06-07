@@ -11,7 +11,6 @@ const serieIniezione = document.getElementById("serieIniezione")
 popularShows.map((item) => {
     const serieBox = document.createElement("div")
     const serieTitle = document.createElement("h2")
-    const seriePoster = document.createElement("img")
     const serieInfo = document.createElement("div")
     const details = document.createElement("div")
     const dateBlock = document.createElement("div")
@@ -26,17 +25,25 @@ popularShows.map((item) => {
     dateBlock.classList = "detailsDate"
     votesBlock.classList = "detailsVotes"
 
-    serieTitle.innerText = item.name
+    if (item.poster_path) {
+        const seriePoster = document.createElement("img")
+        seriePoster.src = `${posterBaseUrl}${item.poster_path}`
+        seriePoster.alt = item.name
+        serieBox.appendChild(seriePoster)
+    } else {
+        const placeholder = document.createElement("div")
+        placeholder.classList = "poster-placeholder"
+        placeholder.innerText = "Nessuna immagine"
+        serieBox.appendChild(placeholder)
+    }
 
-    seriePoster.src = `${posterBaseUrl}${item.poster_path}`
-    seriePoster.alt = item.name
+    serieTitle.innerText = item.name
 
     serieDate.innerText = item.first_air_date
 
     voto.innerText = "Avg: " + item.vote_average.toFixed(1)
     totVoti.innerText = "Votes: " + item.vote_count
 
-    serieBox.appendChild(seriePoster)
     serieInfo.appendChild(serieTitle)
     serieBox.appendChild(serieInfo)
     serieBox.appendChild(details)
