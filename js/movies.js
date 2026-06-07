@@ -1,6 +1,6 @@
 // Importing api functions
 import { getPopularMovies } from "./api.js";
-import { createPoster, createVotesBlock } from "./utils.js";
+import { createPoster, createVotesBlock, openModal } from "./utils.js";
 
 // Injecting Popular Movies
 const movieIniezione = document.querySelector("#movieIniezione")
@@ -39,7 +39,7 @@ if (!popularMovies) {
         details.appendChild(createVotesBlock(item))
 
         movieBox.addEventListener("click", () => {
-            console.log("Film selezionato — id:", item.id, "| titolo:", item.title)
+            openModal(item.id, "movie")
         })
 
         movieIniezione.append(movieBox)

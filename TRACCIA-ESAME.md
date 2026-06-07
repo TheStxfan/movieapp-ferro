@@ -245,14 +245,14 @@ Le API TMDB v3 supportano richieste dal browser con API key. Se incontrate error
 
 Consegnare **repository Git** (GitHub o piattaforma indicata dal docente) con:
 
-- [ ] Tutti i file HTML/CSS/JS del progetto;
+- [x] Tutti i file HTML/CSS/JS del progetto;
 - [ ] `README.md` con:
   - nome del progetto e autori;
   - come aprire il sito in locale (es. Live Server o `npx serve`);
   - dove inserire la API key;
   - elenco endpoint TMDB usati per ogni pagina;
-- [ ] `.gitignore` che esclude file con secret (es. `config.local.js`);
-- [ ] **Nessuna** API key committata in chiaro.
+- [x] `.gitignore` che esclude file con secret (es. `config.local.js`);
+- [x] **Nessuna** API key committata in chiaro.
 
 Il docente potrà verificare:
 
@@ -280,14 +280,14 @@ Il docente potrà verificare:
 
 ## 10. Checklist finale per lo studente
 
-- [ ] Home: almeno una lista da API (film **o** serie); ideale: entrambe.
-- [ ] Nessun array statico usato come fonte principale dei contenuti.
-- [ ] `movies.html`: lista film da GET TMDB.
-- [ ] `series.html`: lista serie da GET TMDB.
-- [ ] Header: logo + 3 link funzionanti.
-- [ ] Footer presente.
-- [ ] Poster con URL TMDB o placeholder se mancante.
-- [ ] Solo metodi **GET**.
+- [x] Home: almeno una lista da API (film **o** serie); ideale: entrambe.
+- [x] Nessun array statico usato come fonte principale dei contenuti.
+- [x] `movies.html`: lista film da GET TMDB.
+- [x] `series.html`: lista serie da GET TMDB.
+- [x] Header: logo + 3 link funzionanti.
+- [x] Footer presente.
+- [x] Poster con URL TMDB o placeholder se mancante.
+- [x] Solo metodi **GET**.
 - [ ] README con istruzioni e endpoint documentati.
 - [ ] *(Bonus)* Pagina o vista dettaglio con `/movie/{id}` o `/tv/{id}`.
 

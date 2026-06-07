@@ -7,12 +7,12 @@ export const getTrendingMovies = async () => {
     try {
         const result = await fetch(`${requestBaseUrl}/trending/movie/day`,
             {
-                method: 'GET',
-                headers: {
-                    accept: 'application/json',
-                    Authorization: `Bearer ${api_token}`
-                }
-            });
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${api_token}`
+            }
+        });
 
         if (!result.ok) {
             console.error("Errore risposta API:", result.status)
@@ -31,12 +31,12 @@ export const getTrendingShows = async () => {
     try {
         const result = await fetch(`${requestBaseUrl}/trending/tv/day`,
             {
-                method: 'GET',
-                headers: {
-                    accept: 'application/json',
-                    Authorization: `Bearer ${api_token}`
-                }
-            });
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${api_token}`
+            }
+        });
 
         if (!result.ok) {
             console.error("Errore risposta API:", result.status)
@@ -56,12 +56,12 @@ export const getPopularMovies = async () => {
     try {
         const result = await fetch(`${requestBaseUrl}/movie/popular`,
             {
-                method: 'GET',
-                headers: {
-                    accept: 'application/json',
-                    Authorization: `Bearer ${api_token}`
-                }
-            });
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${api_token}`
+            }
+        });
 
         if (!result.ok) {
             console.error("Errore risposta API:", result.status)
@@ -81,12 +81,59 @@ export const getPopularShows = async () => {
     try {
         const result = await fetch(`${requestBaseUrl}/tv/popular`,
             {
-                method: 'GET',
-                headers: {
-                    accept: 'application/json',
-                    Authorization: `Bearer ${api_token}`
-                }
-            });
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${api_token}`
+            }
+        });
+
+        if (!result.ok) {
+            console.error("Errore risposta API:", result.status)
+            return null;
+        }
+
+        return await result.json();
+
+    } catch (error) {
+        console.error("Errore chiamata API:", error.message)
+        return null;
+    }
+}
+
+// Detail Pages
+export const getMovieDetail = async (id) => {
+    try {
+        const result = await fetch(`${requestBaseUrl}/movie/${id}?language=it-IT`, {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${api_token}`
+            }
+        });
+
+        if (!result.ok) {
+            console.error("Errore risposta API:", result.status)
+            return null;
+        }
+
+        return await result.json();
+
+    } catch (error) {
+        console.error("Errore chiamata API:", error.message)
+        return null;
+    }
+}
+
+export const getSerieDetail = async (id) => {
+    try {
+        const result = await fetch(`${requestBaseUrl}/tv/${id}?language=it-IT`, {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${api_token}`
+            }
+        });
 
         if (!result.ok) {
             console.error("Errore risposta API:", result.status)

@@ -197,3 +197,82 @@ footer {
 .footer-content {
     max-width: 45rem;
 }
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.modal-overlay.modal-visible {
+    display: flex;
+}
+
+.modal-box {
+    background-color: #1f1f1f;
+    border-radius: .75rem;
+    max-width: 50rem;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 1.5rem;
+    position: relative;
+    color: white;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: #ff0000;
+}
+
+#modalBody {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.modal-poster {
+    width: 12rem;
+    border-radius: .5rem;
+    flex-shrink: 0;
+}
+
+.modal-info {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    flex: 1;
+}
+
+.modal-info h2 {
+    font-size: 1.4rem;
+    margin: 0;
+    color: white;
+}
+
+.modal-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.modal-overview {
+    margin-top: .4rem !important;
+    line-height: 1.6;
+}

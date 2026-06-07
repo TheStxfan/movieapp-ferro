@@ -1,6 +1,6 @@
 // Importing api functions
 import { getTrendingMovies, getTrendingShows } from "./api.js";
-import { createPoster } from "./utils.js";
+import { createPoster, openModal } from "./utils.js";
 
 // Injecting Trending Movies
 const movieIniezione = document.querySelector("#movieIniezione")
@@ -34,7 +34,7 @@ if (!trendingMovies) {
         details.appendChild(movieDate)
 
         movieBox.addEventListener("click", () => {
-            console.log("Film selezionato — id:", item.id, "| titolo:", item.title)
+            openModal(item.id, "movie")
         })
 
         movieIniezione.append(movieBox)
@@ -67,7 +67,7 @@ if (!trendingSeries) {
         serieBox.appendChild(serieDate)
 
         serieBox.addEventListener("click", () => {
-            console.log("Serie selezionata — id:", item.id, "| titolo:", item.name)
+            openModal(item.id, "tv")
         })
 
         serieIniezione.append(serieBox)

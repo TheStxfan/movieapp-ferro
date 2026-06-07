@@ -1,6 +1,6 @@
 // Importing api functions
 import { getPopularShows } from "./api.js";
-import { createPoster, createVotesBlock } from "./utils.js";
+import { createPoster, createVotesBlock, openModal } from "./utils.js";
 
 // Injecting Popular Series
 const serieIniezione = document.querySelector("#serieIniezione")
@@ -39,7 +39,7 @@ if (!popularShows) {
         details.appendChild(createVotesBlock(item))
 
         serieBox.addEventListener("click", () => {
-            console.log("Serie selezionata — id:", item.id, "| titolo:", item.name)
+            openModal(item.id, "tv")
         })
 
         serieIniezione.append(serieBox)
