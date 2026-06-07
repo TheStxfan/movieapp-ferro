@@ -3,7 +3,7 @@ import { getPopularMovies } from "./api.js";
 import { createPoster, createVotesBlock } from "./utils.js";
 
 // Injecting Popular Movies
-const movieIniezione = document.getElementById("movieIniezione")
+const movieIniezione = document.querySelector("#movieIniezione")
 movieIniezione.innerText = "Caricamento..."
 
 const popularMovies = await getPopularMovies()
@@ -37,6 +37,10 @@ if (!popularMovies) {
         dateBlock.appendChild(movieDate)
         details.appendChild(dateBlock)
         details.appendChild(createVotesBlock(item))
+
+        movieBox.addEventListener("click", () => {
+            console.log("Film selezionato — id:", item.id, "| titolo:", item.title)
+        })
 
         movieIniezione.append(movieBox)
     })

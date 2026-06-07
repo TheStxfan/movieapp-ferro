@@ -3,7 +3,7 @@ import { getPopularShows } from "./api.js";
 import { createPoster, createVotesBlock } from "./utils.js";
 
 // Injecting Popular Series
-const serieIniezione = document.getElementById("serieIniezione")
+const serieIniezione = document.querySelector("#serieIniezione")
 serieIniezione.innerText = "Caricamento..."
 
 const popularShows = await getPopularShows()
@@ -37,6 +37,10 @@ if (!popularShows) {
         dateBlock.appendChild(serieDate)
         details.appendChild(dateBlock)
         details.appendChild(createVotesBlock(item))
+
+        serieBox.addEventListener("click", () => {
+            console.log("Serie selezionata — id:", item.id, "| titolo:", item.name)
+        })
 
         serieIniezione.append(serieBox)
     })

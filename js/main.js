@@ -3,7 +3,7 @@ import { getTrendingMovies, getTrendingShows } from "./api.js";
 import { createPoster } from "./utils.js";
 
 // Injecting Trending Movies
-const movieIniezione = document.getElementById("movieIniezione")
+const movieIniezione = document.querySelector("#movieIniezione")
 movieIniezione.innerText = "Caricamento..."
 
 const trendingMovies = await getTrendingMovies()
@@ -33,12 +33,16 @@ if (!trendingMovies) {
         movieBox.appendChild(details)
         details.appendChild(movieDate)
 
+        movieBox.addEventListener("click", () => {
+            console.log("Film selezionato — id:", item.id, "| titolo:", item.title)
+        })
+
         movieIniezione.append(movieBox)
     })
 }
 
 // Injecting Trending Series
-const serieIniezione = document.getElementById("serieIniezione")
+const serieIniezione = document.querySelector("#serieIniezione")
 serieIniezione.innerText = "Caricamento..."
 
 const trendingSeries = await getTrendingShows()
@@ -61,6 +65,10 @@ if (!trendingSeries) {
 
         serieBox.appendChild(serieTitle)
         serieBox.appendChild(serieDate)
+
+        serieBox.addEventListener("click", () => {
+            console.log("Serie selezionata — id:", item.id, "| titolo:", item.name)
+        })
 
         serieIniezione.append(serieBox)
     })
