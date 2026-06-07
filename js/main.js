@@ -18,6 +18,8 @@ if (!trendingMovies) {
         const movieInfo = document.createElement("div")
         const details = document.createElement("div")
         const movieDate = document.createElement("p")
+        const date = item.release_date 
+        const dateFormatted = date !== "—" ? new Date(date).toLocaleDateString("it-IT") : "—"
 
         movieBox.classList = "card"
         movieInfo.classList = "movieInfo"
@@ -26,7 +28,7 @@ if (!trendingMovies) {
         movieBox.appendChild(createPoster(item, "title"))
 
         movieTitle.innerText = item.title
-        movieDate.innerText = item.release_date
+        movieDate.innerText = dateFormatted
 
         movieInfo.appendChild(movieTitle)
         movieBox.appendChild(movieInfo)
@@ -55,13 +57,15 @@ if (!trendingSeries) {
         const serieBox = document.createElement("div")
         const serieTitle = document.createElement("h2")
         const serieDate = document.createElement("p")
+        const date = item.first_air_date
+        const dateFormatted = date !== "—" ? new Date(date).toLocaleDateString("it-IT") : "—"
 
         serieBox.classList = "card"
 
         serieBox.appendChild(createPoster(item, "name"))
 
         serieTitle.innerText = item.name
-        serieDate.innerText = item.first_air_date
+        serieDate.innerText = dateFormatted
 
         serieBox.appendChild(serieTitle)
         serieBox.appendChild(serieDate)

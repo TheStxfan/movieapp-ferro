@@ -19,6 +19,8 @@ if (!popularShows) {
         const details = document.createElement("div")
         const dateBlock = document.createElement("div")
         const serieDate = document.createElement("p")
+        const date = item.first_air_date
+        const dateFormatted = date !== "—" ? new Date(date).toLocaleDateString("it-IT") : "—"
 
         serieBox.classList = "card"
         serieInfo.classList = "movieInfo"
@@ -28,7 +30,7 @@ if (!popularShows) {
         serieBox.appendChild(createPoster(item, "name"))
 
         serieTitle.innerText = item.name
-        serieDate.innerText = item.first_air_date
+        serieDate.innerText = dateFormatted
 
         serieInfo.appendChild(serieTitle)
         serieBox.appendChild(serieInfo)

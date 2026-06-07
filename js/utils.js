@@ -66,6 +66,7 @@ export async function openModal(id, type) {
 
     const title = data.title || data.name
     const date = data.release_date || data.first_air_date || "—"
+    const dateFormatted = date !== "—" ? new Date(date).toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" }) : "—"
     const overview = data.overview || "Nessuna descrizione disponibile."
     const vote = data.vote_average ? data.vote_average.toFixed(1) : "—"
     const votes = data.vote_count || 0
@@ -88,7 +89,7 @@ export async function openModal(id, type) {
     h2.innerText = title
 
     const dateP = document.createElement("p")
-    dateP.innerText = "Data di uscita: " + date
+    dateP.innerText = "Data di uscita: " + dateFormatted
 
     const voteP = document.createElement("p")
     voteP.innerText = "Valutazione: " + vote + " (" + votes + " voti)"

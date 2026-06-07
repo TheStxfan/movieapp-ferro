@@ -19,6 +19,8 @@ if (!popularMovies) {
         const details = document.createElement("div")
         const dateBlock = document.createElement("div")
         const movieDate = document.createElement("p")
+        const date = item.release_date 
+        const dateFormatted = date !== "—" ? new Date(date).toLocaleDateString("it-IT") : "—"
 
         movieBox.classList = "card"
         movieInfo.classList = "movieInfo"
@@ -28,7 +30,7 @@ if (!popularMovies) {
         movieBox.appendChild(createPoster(item, "title"))
 
         movieTitle.innerText = item.title
-        movieDate.innerText = item.release_date
+        movieDate.innerText = dateFormatted
 
         movieInfo.appendChild(movieTitle)
         movieBox.appendChild(movieInfo)
