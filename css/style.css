@@ -276,3 +276,39 @@ footer {
     margin-top: .4rem !important;
     line-height: 1.6;
 }
+
+#hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #b10101;
+    cursor: pointer;
+}
+
+@media (max-width: 800px) {
+    #hamburger {
+        display: block;
+    }
+
+    #menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 4.5rem;
+        right: 1rem;
+        background-color: #1f1f1f;
+        padding: 1rem 1.5rem;
+        border-radius: .5rem;
+        gap: .8rem;
+        z-index: 50;
+    }
+
+    #menu.menu-open {
+        display: flex;
+    }
+
+    #header {
+        position: relative;
+    }
+}
