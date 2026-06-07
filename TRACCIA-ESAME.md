@@ -246,7 +246,7 @@ Le API TMDB v3 supportano richieste dal browser con API key. Se incontrate error
 Consegnare **repository Git** (GitHub o piattaforma indicata dal docente) con:
 
 - [x] Tutti i file HTML/CSS/JS del progetto;
-- [ ] `README.md` con:
+- [x] `README.md` con:
   - nome del progetto e autori;
   - come aprire il sito in locale (es. Live Server o `npx serve`);
   - dove inserire la API key;
@@ -289,7 +289,7 @@ Il docente potrà verificare:
 - [x] Poster con URL TMDB o placeholder se mancante.
 - [x] Solo metodi **GET**.
 - [ ] README con istruzioni e endpoint documentati.
-- [ ] *(Bonus)* Pagina o vista dettaglio con `/movie/{id}` o `/tv/{id}`.
+- [x] *(Bonus)* Pagina o vista dettaglio con `/movie/{id}` o `/tv/{id}`.
 
 ---
 
