@@ -5,8 +5,7 @@ const requestBaseUrl = "https://api.themoviedb.org/3"
 // Home Page
 export const getTrendingMovies = async () => {
     try {
-        const result = await fetch(`${requestBaseUrl}/trending/movie/day`,
-            {
+        const result = await fetch(`${requestBaseUrl}/trending/movie/day`, {
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -29,8 +28,7 @@ export const getTrendingMovies = async () => {
 
 export const getTrendingShows = async () => {
     try {
-        const result = await fetch(`${requestBaseUrl}/trending/tv/day`,
-            {
+        const result = await fetch(`${requestBaseUrl}/trending/tv/day`, {
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -54,8 +52,7 @@ export const getTrendingShows = async () => {
 // Movies Page
 export const getPopularMovies = async () => {
     try {
-        const result = await fetch(`${requestBaseUrl}/movie/popular`,
-            {
+        const result = await fetch(`${requestBaseUrl}/movie/popular`, {
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -79,8 +76,7 @@ export const getPopularMovies = async () => {
 // Series Page
 export const getPopularShows = async () => {
     try {
-        const result = await fetch(`${requestBaseUrl}/tv/popular`,
-            {
+        const result = await fetch(`${requestBaseUrl}/tv/popular`, {
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -102,9 +98,9 @@ export const getPopularShows = async () => {
 }
 
 // Detail Pages
-export const getMovieDetail = async (id) => {
+export const getMovieDetail = async (id, language = "en-US") => {
     try {
-        const result = await fetch(`${requestBaseUrl}/movie/${id}?language=it-IT`, {
+        const result = await fetch(`${requestBaseUrl}/movie/${id}?language=${language}`, {
             method: 'GET',
             headers: {
                 accept: 'application/json',
@@ -125,9 +121,9 @@ export const getMovieDetail = async (id) => {
     }
 }
 
-export const getSerieDetail = async (id) => {
+export const getSerieDetail = async (id, language = "en-US") => {
     try {
-        const result = await fetch(`${requestBaseUrl}/tv/${id}?language=it-IT`, {
+        const result = await fetch(`${requestBaseUrl}/tv/${id}?language=${language}`, {
             method: 'GET',
             headers: {
                 accept: 'application/json',

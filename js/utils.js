@@ -51,11 +51,17 @@ export async function openModal(id, type) {
     modalBody.innerText = "Caricamento..."
     modal.classList.add("modal-visible")
 
-    const data = type === "movie" ? await getMovieDetail(id) : await getSerieDetail(id)
+    // Prima prova in italiano
+    let data = type === "movie" ? await getMovieDetail(id, "it-IT") : await getSerieDetail(id, "it-IT")
 
     if (!data) {
         modalBody.innerText = "Errore nel caricamento dei dettagli."
         return
+    }
+
+    // Se l'overview è vuoto, rifai in inglese come fallback
+    if (!data.overview) {
+        data = type === "movie" ? await getMovieDetail(id, "en-US") : await getSerieDetail(id, "en-US")
     }
 
     const title = data.title || data.name
