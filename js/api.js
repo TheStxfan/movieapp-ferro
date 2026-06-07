@@ -1,9 +1,12 @@
 import { api_token } from './config.js';
 
+const requestBaseUrl = "https://api.themoviedb.org/3"
+export const posterBaseUrl = "https://image.tmdb.org/t/p/w500"
+
 // Home Page
 export const getTrendingMovies = async () => {
     try {
-        const result = await fetch('https://api.themoviedb.org/3/trending/movie/day',
+        const result = await fetch(`${requestBaseUrl}/trending/movie/day`,
             {
                 method: 'GET',
                 headers: {
@@ -22,7 +25,7 @@ export const getTrendingMovies = async () => {
 
 export const getTrendingShows = async () => {
     try {
-        const result = await fetch('https://api.themoviedb.org/3/trending/tv/day',
+        const result = await fetch(`${requestBaseUrl}/trending/tv/day`,
             {
                 method: 'GET',
                 headers: {
@@ -42,7 +45,7 @@ export const getTrendingShows = async () => {
 // Movies Page
 export const getPopularMovies = async () => {
     try {
-        const result = await fetch('https://api.themoviedb.org/3/movie/popular',
+        const result = await fetch(`${requestBaseUrl}/movie/popular`,
             {
                 method: 'GET',
                 headers: {
@@ -62,7 +65,7 @@ export const getPopularMovies = async () => {
 // Series Page
 export const getPopularShows = async () => {
     try {
-        const result = await fetch('https://api.themoviedb.org/3/tv/popular',
+        const result = await fetch(`${requestBaseUrl}/tv/popular`,
             {
                 method: 'GET',
                 headers: {

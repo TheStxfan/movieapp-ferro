@@ -1,10 +1,9 @@
 // Importing api functions
-import { getTrendingMovies, getTrendingShows } from "./api.js";
+import { posterBaseUrl, getTrendingMovies, getTrendingShows } from "./api.js";
 
 // Results
 const trendingMovies = (await getTrendingMovies()).results
 const trendingSeries = (await getTrendingShows()).results
-const posterBaseUrl = "https://image.tmdb.org/t/p/w220_and_h330_face"
 
 // Testing
 console.log(trendingMovies[0].release_date)
