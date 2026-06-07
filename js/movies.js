@@ -1,9 +1,9 @@
 // Importing api functions
 import { getPopularMovies } from "./api.js";
+import { createPoster, createVotesBlock } from "./utils.js";
 
 // Results
 const popularMovies = (await getPopularMovies()).results
-const posterBaseUrl = "https://image.tmdb.org/t/p/w220_and_h330_face"
 
 // Injecting Popular Movies
 const movieIniezione = document.getElementById("movieIniezione")
@@ -15,44 +15,24 @@ popularMovies.map((item) => {
     const details = document.createElement("div")
     const dateBlock = document.createElement("div")
     const movieDate = document.createElement("p")
-    const votesBlock = document.createElement("div")
-    const voto = document.createElement("p")
-    const totVoti = document.createElement("p")
 
     movieBox.classList = "card"
     movieInfo.classList = "movieInfo"
     details.classList = "movieDetailsBar"
     dateBlock.classList = "detailsDate"
-    votesBlock.classList = "detailsVotes"
 
-    if (item.poster_path) {
-        const moviePoster = document.createElement("img")
-        moviePoster.src = `${posterBaseUrl}${item.poster_path}`
-        moviePoster.alt = item.title
-        movieBox.appendChild(moviePoster)
-    } else {
-        const placeholder = document.createElement("div")
-        placeholder.classList = "poster-placeholder"
-        placeholder.innerText = "Nessuna immagine"
-        movieBox.appendChild(placeholder)
-    }
+    movieBox.appendChild(createPoster(item, "title"))
 
     movieTitle.innerText = item.title
-
     movieDate.innerText = item.release_date
-
-    voto.innerText = "Avg: " + item.vote_average.toFixed(1)
-    totVoti.innerText = "Votes: " + item.vote_count
 
     movieInfo.appendChild(movieTitle)
     movieBox.appendChild(movieInfo)
     movieBox.appendChild(details)
 
     dateBlock.appendChild(movieDate)
-    votesBlock.appendChild(voto)
-    votesBlock.appendChild(totVoti)
     details.appendChild(dateBlock)
-    details.appendChild(votesBlock)
+    details.appendChild(createVotesBlock(item))
     
     movieIniezione.append(movieBox)
 })

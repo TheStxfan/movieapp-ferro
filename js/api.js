@@ -1,7 +1,6 @@
 import { api_token } from './config.js';
 
 const requestBaseUrl = "https://api.themoviedb.org/3"
-export const posterBaseUrl = "https://image.tmdb.org/t/p/w500"
 
 // Home Page
 export const getTrendingMovies = async () => {

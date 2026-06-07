@@ -1,5 +1,6 @@
 // Importing api functions
-import { posterBaseUrl, getTrendingMovies, getTrendingShows } from "./api.js";
+import { getTrendingMovies, getTrendingShows } from "./api.js";
+import { createPoster } from "./utils.js";
 
 // Results
 const trendingMovies = (await getTrendingMovies()).results
@@ -19,17 +20,7 @@ trendingMovies.map((item) => {
     movieInfo.classList = "movieInfo"
     details.classList = "movieDetailsBar"
 
-    if (item.poster_path) {
-        const moviePoster = document.createElement("img")
-        moviePoster.src = `${posterBaseUrl}${item.poster_path}`
-        moviePoster.alt = item.title
-        movieBox.appendChild(moviePoster)
-    } else {
-        const placeholder = document.createElement("div")
-        placeholder.classList = "poster-placeholder"
-        placeholder.innerText = "Nessuna immagine"
-        movieBox.appendChild(placeholder)
-    }
+    movieBox.appendChild(createPoster(item, "title"))
 
     movieTitle.innerText = item.title
     movieDate.innerText = item.release_date
@@ -52,17 +43,7 @@ trendingSeries.map((item) => {
 
     serieBox.classList = "card"
 
-    if (item.poster_path) {
-        const seriePoster = document.createElement("img")
-        seriePoster.src = `${posterBaseUrl}${item.poster_path}`
-        seriePoster.alt = item.name
-        serieBox.appendChild(seriePoster)
-    } else {
-        const placeholder = document.createElement("div")
-        placeholder.classList = "poster-placeholder"
-        placeholder.innerText = "Nessuna immagine"
-        serieBox.appendChild(placeholder)
-    }
+    serieBox.appendChild(createPoster(item, "name"))
 
     serieTitle.innerText = item.name
     serieDate.innerText = item.first_air_date
