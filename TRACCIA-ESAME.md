@@ -288,7 +288,7 @@ Il docente potrà verificare:
 - [x] Footer presente.
 - [x] Poster con URL TMDB o placeholder se mancante.
 - [x] Solo metodi **GET**.
-- [ ] README con istruzioni e endpoint documentati.
+- [x] README con istruzioni e endpoint documentati.
 - [x] *(Bonus)* Pagina o vista dettaglio con `/movie/{id}` o `/tv/{id}`.
 
 ---
