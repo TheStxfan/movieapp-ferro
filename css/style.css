@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
 body {
     margin: .5rem 1rem;
     font-family: "Roboto";
@@ -11,7 +13,7 @@ body {
     align-items: center;
     background-color: rgb(20, 20, 20);
     color: #db0000;
-    padding: 0.6rem 1.7rem;
+    padding: .6rem 1.7rem .2rem 1.7rem;
 }
 
 #logo {
@@ -49,6 +51,7 @@ body {
 
 #menuDivider {
     border-color: #b10101;
+    margin-bottom: 1rem;
 }
 
 #sectionTitle {
@@ -319,4 +322,47 @@ footer {
     #header {
         position: relative;
     }
+}
+
+.banner {
+    width: 100%;
+    min-height: 22rem;
+    background-size: cover;
+    background-position: center;
+    border-radius: .75rem;
+    position: relative;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(20, 20, 20, 1) 0%, rgba(20, 20, 20, 0.4) 60%, rgba(20, 20, 20, 0.1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    gap: .5rem;
+}
+
+.banner-title {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.banner-overview {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    max-width: 40rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.banner-vote {
+    color: #f5c518;
+    font-size: 1rem;
+    font-weight: bold;
 }

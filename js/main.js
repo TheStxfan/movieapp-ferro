@@ -1,9 +1,10 @@
 // Importing api functions
 import { getTrendingMovies, getTrendingShows } from "./api.js";
-import { createPoster, openModal } from "./utils.js";
+import { createPoster, createBanner, openModal } from "./utils.js";
 
 // Injecting Trending Movies
 const movieIniezione = document.querySelector("#movieIniezione")
+const movieBannerSlot = document.querySelector("#movieBannerSlot")
 movieIniezione.innerText = "Caricamento..."
 
 const trendingMovies = await getTrendingMovies()
@@ -12,13 +13,16 @@ if (!trendingMovies) {
     movieIniezione.innerText = "Errore nel caricamento dei film. Riprova più tardi."
 } else {
     movieIniezione.innerText = ""
+    const movieBanner = createBanner(trendingMovies.results, "title")
+    if (movieBanner) movieBannerSlot.appendChild(movieBanner)
+
     trendingMovies.results.map((item) => {
         const movieBox = document.createElement("div")
         const movieTitle = document.createElement("h2")
         const movieInfo = document.createElement("div")
         const details = document.createElement("div")
         const movieDate = document.createElement("p")
-        const date = item.release_date 
+        const date = item.release_date
         const dateFormatted = date !== "—" ? new Date(date).toLocaleDateString("it-IT") : "—"
 
         movieBox.classList = "card"
@@ -45,6 +49,7 @@ if (!trendingMovies) {
 
 // Injecting Trending Series
 const serieIniezione = document.querySelector("#serieIniezione")
+const serieBannerSlot = document.querySelector("#serieBannerSlot")
 serieIniezione.innerText = "Caricamento..."
 
 const trendingSeries = await getTrendingShows()
@@ -53,6 +58,7 @@ if (!trendingSeries) {
     serieIniezione.innerText = "Errore nel caricamento delle serie. Riprova più tardi."
 } else {
     serieIniezione.innerText = ""
+
     trendingSeries.results.map((item) => {
         const serieBox = document.createElement("div")
         const serieTitle = document.createElement("h2")

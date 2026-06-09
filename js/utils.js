@@ -1,11 +1,11 @@
 import { getMovieDetail, getSerieDetail } from "./api.js";
 
-export const posterBaseUrl = "https://image.tmdb.org/t/p/w500"
+export const assetsBaseUrl = "https://image.tmdb.org/t/p/original"
 
 export function createPoster(item, titleField) {
     if (item.poster_path) {
         const img = document.createElement("img")
-        img.src = `${posterBaseUrl}${item.poster_path}`
+        img.src = `${assetsBaseUrl}${item.poster_path}`
         img.alt = item[titleField]
         return img
     } else {
@@ -30,6 +30,37 @@ export function createVotesBlock(item) {
     return votesBlock
 }
 
+export function createBanner(items, titleField) {
+    const featured = items.find(item => item.backdrop_path)
+    if (!featured) return null
+
+    const banner = document.createElement("div")
+    banner.classList = "banner"
+    banner.style.backgroundImage = `url(${assetsBaseUrl}${featured.backdrop_path})`
+
+    const overlay = document.createElement("div")
+    overlay.classList = "banner-overlay"
+
+    const title = document.createElement("h2")
+    title.classList = "banner-title"
+    title.innerText = featured[titleField]
+
+    const overview = document.createElement("p")
+    overview.classList = "banner-overview"
+    overview.innerText = featured.overview || ""
+
+    const vote = document.createElement("span")
+    vote.classList = "banner-vote"
+    vote.innerText = "★ " + featured.vote_average.toFixed(1)
+
+    overlay.appendChild(title)
+    overlay.appendChild(overview)
+    overlay.appendChild(vote)
+    banner.appendChild(overlay)
+
+    return banner
+}
+
 // Chiusura Modal
 const modal = document.querySelector("#detailModal")
 const modalClose = document.querySelector("#modalClose")
@@ -51,7 +82,6 @@ export async function openModal(id, type) {
     modalBody.innerText = "Caricamento..."
     modal.classList.add("modal-visible")
 
-    // Prima prova in italiano
     let data = type === "movie" ? await getMovieDetail(id, "it-IT") : await getSerieDetail(id, "it-IT")
 
     if (!data) {
@@ -59,7 +89,6 @@ export async function openModal(id, type) {
         return
     }
 
-    // Se l'overview è vuoto, rifai in inglese come fallback
     if (!data.overview) {
         data = type === "movie" ? await getMovieDetail(id, "en-US") : await getSerieDetail(id, "en-US")
     }
@@ -70,7 +99,7 @@ export async function openModal(id, type) {
     const overview = data.overview || "Nessuna descrizione disponibile."
     const vote = data.vote_average ? data.vote_average.toFixed(1) : "—"
     const votes = data.vote_count || 0
-    const posterUrl = data.poster_path ? `${posterBaseUrl}${data.poster_path}` : null
+    const posterUrl = data.poster_path ? `${assetsBaseUrl}${data.poster_path}` : null
 
     modalBody.innerHTML = ""
 

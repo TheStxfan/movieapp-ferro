@@ -1,9 +1,10 @@
 // Importing api functions
 import { getPopularShows } from "./api.js";
-import { createPoster, createVotesBlock, openModal } from "./utils.js";
+import { createPoster, createVotesBlock, createBanner, openModal } from "./utils.js";
 
 // Injecting Popular Series
 const serieIniezione = document.querySelector("#serieIniezione")
+const serieBannerSlot = document.querySelector("#serieBannerSlot")
 serieIniezione.innerText = "Caricamento..."
 
 const popularShows = await getPopularShows()
@@ -12,6 +13,9 @@ if (!popularShows) {
     serieIniezione.innerText = "Errore nel caricamento delle serie. Riprova più tardi."
 } else {
     serieIniezione.innerText = ""
+    const serieBanner = createBanner(popularShows.results, "name")
+    if (serieBanner) serieBannerSlot.appendChild(serieBanner)
+
     popularShows.results.map((item) => {
         const serieBox = document.createElement("div")
         const serieTitle = document.createElement("h2")
