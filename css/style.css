@@ -76,17 +76,29 @@ body {
     justify-content: space-between;
     padding: .2rem .5rem;
     border-radius: .5rem;
-    background-color: rgba(255, 255, 255, 0.2);
     color: rgb(255, 255, 255);
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
-    
+
+    /* Base scura sopra, accenno di rosso elegante sotto a destra */
+    background: linear-gradient(
+        135deg, 
+        rgba(35, 35, 35, 0.9) 0%, 
+        rgba(25, 25, 25, 0.5) 40%, 
+        rgba(20, 20, 20, 0.9) 70%, 
+        rgba(177, 1, 1, 0.25) 100%
+    );
+    background-size: 220% 220%;
+    background-position: top left;
+
+    transition: background-position 0.5s ease-out, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-    background-color: rgba(255, 255, 255, 0.35);
     transform: translateY(-.4rem);
-    box-shadow: 0 .6rem 1.2rem rgba(0, 0, 0, 0.3);
+    box-shadow: 0 .6rem 1.2rem rgba(0, 0, 0, 0.5);
+    
+    /* Sposta la diagonale facendo entrare il rosso dall'angolo inferiore destro */
+    background-position: bottom right;
 }
 
 .card img {
@@ -226,7 +238,7 @@ footer {
 }
 
 .modal-box {
-    background-color: #1f1f1f;
+    background-color: #111111;
     border-radius: .75rem;
     max-width: 50rem;
     width: 100%;
@@ -235,6 +247,7 @@ footer {
     padding: 1.5rem;
     position: relative;
     color: white;
+    border: .06rem solid rgba(255, 255, 255, 0.1);
 }
 
 .modal-close {
